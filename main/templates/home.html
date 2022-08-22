@@ -1,0 +1,67 @@
+{# Load the tag library #}
+{% load bootstrap5 %}
+
+{# Load CSS and JavaScript #}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+
+
+<div class="container-flex">
+	<div class="row">
+	<div class="col-4">
+
+	</div>
+	<div class="col-6">
+		<div>
+			<table class="table table-striped table-hover">
+			  <thead>  		
+			    <tr>
+			      <th scope="col">Pts</th>
+			      <th scope="col">Logo</th>
+			      <th scope="col">Time</th>
+			      <th scope="col">J</th>
+			      <th scope="col">V</th>
+			      <th scope="col">D</th>
+			      <th scope="col">E</th>
+			      <th scope="col">SG</th>
+			      <th scope="col">G+</th>
+			      <th scope="col">G-</th>
+			    </tr>
+			  </thead>
+			  <tbody>
+			  	{% for d in data %}
+			    <tr>
+			      <th scope="row">{{ d.stats.6.value }}</th>
+			      <td>
+			      	<img style="width: 100%" src="{{ d.team.logos.0.href }}" class="rounded-circle">
+			      </td>
+			      <td>{{ d.team.name }}</td>
+			      <td>{{ d.stats.3.value }}</td>
+			      <td>{{ d.stats.0.value }}</td>
+			      <td>{{ d.stats.1.value }}</td>
+			      <td>{{ d.stats.2.value }}</td>
+			      <td>{{ d.stats.9.value }}</td>
+			      <td>{{ d.stats.4.value }}</td>
+			      <td>{{ d.stats.5.value }}</td>
+			    </tr>
+			    {% endfor %}
+			  </tbody> 
+			</table>
+		</div>
+	</div>
+	</div>
+</div>
+
+
+	
+	
+</body>
+</html>
